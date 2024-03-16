@@ -49,3 +49,27 @@ export function renderListWithTemplate(templateFn, parentElement, list, position
 
   parentElement.insertAdjacentHTML(position, htmlStrings.join(""));
 }
+
+export function renderWithTemplate(templateFn, parentElement, data, callbackD, position = "afterbegin"){
+  parentElement.insertAdjacentHTML(position, templateFn);
+  if (callbackD){
+    callbackD(data);
+  }
+}
+
+async function loadTemplate(path){
+  const res = await fetch(path);
+  const html = await res.text();
+  let template = document.createElement("template");
+  template.innerHTML = html;
+  return template.innerHTML;
+}
+
+export async function loadHeaderFooter(){
+  const headerTemplate = await loadTemplate("../partials/header.html");
+  const headerElement = document.getElementById("main-header");
+  const footerTemplate = await loadTemplate("../partials/footer.html");
+  const footerElement = document.getElementById("main-footer");
+  renderWithTemplate(headerTemplate,headerElement);
+  renderWithTemplate(footerTemplate, footerElement);
+}
