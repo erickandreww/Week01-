@@ -8,7 +8,6 @@ const productId = getParams("product");
 const product = new ProductDetails(productId, dataSource);
 product.init();
 
-console.log(dataSource.findProductById(productId));
 
 function addProductToCart(product) {
   setLocalStorage("so-cart", product);

@@ -24,7 +24,6 @@ export default class ProductListing{
 
     async init(){
         const list = await this.dataSource.getData(this.category);
-        console.log(list);
         renderListWithTemplate(productCardTemplate, this.listElement, list);
         const title = document.querySelector(".product-c");
         title.innerHTML = "Top Products: " + this.category.charAt(0).toUpperCase() + this.category.slice(1);
