@@ -2,9 +2,9 @@ import { renderListWithTemplate } from "./utils.mjs";
 
 function productCardTemplate(product){
    return `<li class="product-card">
-    <a href="product_pages/index.html?product=${product.Id}">
+    <a href="../product_pages/index.html?product=${product.Id}">
       <img
-        src="${product.Image}"
+        src="${product.Images.PrimaryMedium}"
         alt="${product.Name}"
       />
       <h3 class="card__brand">${product.Brand.Name}</h3>
@@ -23,14 +23,10 @@ export default class ProductListing{
     }
 
     async init(){
-        const list = await this.dataSource.getData();
-        const tentsNeeded = [];
-        list.map(product => {if (product.Id === "880RR" || product.Id === "985RF" || product.Id === "985PR" || product.Id === "344YJ"){
-            tentsNeeded.push(product);
-            }
-        });
-
-        renderListWithTemplate(productCardTemplate, this.listElement, tentsNeeded);
+        const list = await this.dataSource.getData(this.category);
+        renderListWithTemplate(productCardTemplate, this.listElement, list);
+        const title = document.querySelector(".product-c");
+        title.innerHTML = "Top Products: " + this.category.charAt(0).toUpperCase() + this.category.slice(1);
     }
 
 
