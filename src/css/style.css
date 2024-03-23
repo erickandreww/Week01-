@@ -226,9 +226,63 @@ button {
   text-decoration: none;
 }
 
+.cart-total{
+  text-align: center;
+}
+
 .cart-footer-hide{
   display: none;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 0.8rem;
 }
+
+.cart-footer-hide a{
+  padding: 0.5rem 0.8rem;
+  text-decoration: none;
+  background-color: var(--primary-color);
+  border-radius: 6px;
+}
+
+.cart-footer-hide a:link,
+.cart-footer-hide a:visited{
+  color: var(--dark-grey);
+}
+
+form fieldset{
+  padding: 0.5rem 5%;
+  margin: 2rem 2.5rem;
+  border-radius: 10px;
+  border-color: var(--primary-color);
+}
+
+form label{
+  display: block;
+  padding: 0.5rem;
+  font-size: 0.9rem;
+  color: var(--secondary-color);
+}
+
+form input{
+  font-size: 1rem;
+  padding: 0.2rem;
+  width: 100%;
+}
+
+.summary > ul {
+  padding-left: 0;
+  list-style-type: none;
+}
+.summary li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.summary label, p{
+  font-size: 1em;
+  padding-top: 0;
+}
+
 
 @media screen and (min-width: 500px) {
   body {
