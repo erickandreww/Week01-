@@ -283,6 +283,19 @@ form input{
   padding-top: 0;
 }
 
+.alert{
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--primary-color);
+  padding: 0.3rem;
+  border: 2px solid darkorange;
+  border-radius: 1px;
+}
+
+
+.alert > p{
+    margin: 0;
+}
 
 @media screen and (min-width: 500px) {
   body {
