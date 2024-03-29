@@ -248,3 +248,17 @@ footer {
   font-size: var(--small-font);
   padding: 1em;
 }
+
+#checkout-button {
+  display: grid;
+  justify-content: left;
+}
+
+#checkout-button button a {
+  text-decoration: none;
+  color: white;
+}
+
+#checkout-button a:hover {
+  color: cyan;
+}
