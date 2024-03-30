@@ -262,3 +262,67 @@ footer {
 #checkout-button a:hover {
   color: cyan;
 }
+
+/* Form style */
+
+form[name="checkout"] {
+  width: 80%;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+form[name="checkout"] fieldset {
+  margin-bottom: 20px;
+}
+
+form[name="checkout"] legend {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+form[name="checkout"] label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+form[name="checkout"] input[type="text"],
+form[name="checkout"] input[type="number"],
+form[name="checkout"] input[type="date"] {
+  width: calc(100% - 10px);
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+form[name="checkout"] button[type="submit"] {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 3px;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+form[name="checkout"] button[type="submit"]:hover {
+  background-color: #355E3B;
+}
+
+form[name="checkout"] .orderSummary label,
+form[name="checkout"] .orderSummary p {
+  display: inline-block;
+  width: 45%; /* Adjust the width as needed */
+  margin-bottom: 5px;
+}
+
+form[name="checkout"] .orderSummary label {
+  font-weight: bold;
+}
+
+form[name="checkout"] .orderSummary p {
+  margin-left: 5%; /* Adjust the margin as needed */
+}
