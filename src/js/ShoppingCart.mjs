@@ -39,7 +39,7 @@ export default class ShoppingCart{
     renderContent(list){
       let htmlStrings = list.map((product) => productCardTemplate(product))
       document.querySelector(this.selectorP).innerHTML = htmlStrings.join("");
-      document.querySelector(".cart-total").innerText += ` $${this.total}`;
+      document.querySelector(".cart-total").innerText += ` $${(this.total).toFixed(2)}`;
     }
 
 
