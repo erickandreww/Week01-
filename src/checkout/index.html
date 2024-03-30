@@ -21,7 +21,7 @@
       <section class="products">
         <h2>Review & Place your Order</h2>
       </section>
-      <form action="">
+      <form name="checkout">
         <fieldset>
           <legend>Customer Name</legend>
           <label for="">First Name <input type="text" name="firstname" id="firstname" required></label>
@@ -36,18 +36,33 @@
         </fieldset>
         <fieldset>
           <legend>Payment</legend>
-          <label for="">Credit Card Number <input type="text" name="creditcard" id="creditcard" required></label>
+          <label for="">Credit Card Number <input type="text" name="creditcard" id="creditcard" value="1234123412341234" required></label>
           <label for="">Expiration Date <input type="date" name="expiration" id="expiration" required></label>
           <label for="">Security Code <input type="number" name="securitycode" id="securitycode" required></label>
         </fieldset>
+        <fieldset class="orderSummary">
+          <legend>Order Summary: </legend>
+          <ul>
+            <li>
+              <label for="cartTotal">Item SubTotal(<span id="total-items"></span>)</label>
+              <p id="cartTotal"></p>
+            </li>
+            <li>
+              <label for="shipping">Shipping Estimate</label>
+              <p id="shipping"></p>
+            </li>
+            <li>
+              <label for="tax">Tax</label>
+              <p id="tax"></p>
+            </li>
+            <li>
+              <label for="orderTotal">Order Total</label>
+              <p id="orderTotal"></p>
+            </li>
+          </ul>
+        </fieldset>
+        <button id="checkoutSubmit" type="submit">Checkout</button>
       </form>
-      <section class="order-summary">
-        <h3>Order Summary: </h3>
-        <p id="subtotal">Subtotal: </p>
-        <p id="Shipping">Shipping Estimate: </p>
-        <p id="tax">Tax: </p>
-        <p id="orderTotal">Order Total: </p>
-      </section>
     </main>
 
     <footer id="main-footer"></footer>
