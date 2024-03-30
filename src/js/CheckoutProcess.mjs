@@ -1,4 +1,4 @@
-import { getLocalStorage, setLocalStorage, alertMessage, removeAlerts } from "./utils.mjs";
+import { getLocalStorage } from "./utils.mjs";
 import ExternalServices from "./ExternalServices.mjs";
 
 const extServices = new ExternalServices();
@@ -37,16 +37,17 @@ export default class CheckoutProcess {
     init() {
         this.list = getLocalStorage(this.key);
         this.calculateItemSummary(); 
+        this.calculateOrderTotal();
     }
     
     calculateItemSummary() {
-        const itemNumElement = document.querySelector(this.output + " #total-items");
-        const summaryElement = document.querySelector(this.output + " #cartTotal");
+        const summaryElement = document.querySelector(this.outputSelector + " #cartTotal");
+        const itemNumElement = document.querySelector(this.outputSelector + " #num-items");
         itemNumElement.innerText = this.list.length;
         // calculate the total of all the items in the cart
         const amounts = this.list.map((item) => item.FinalPrice);
         this.itemTotal = amounts.reduce((sum, item) => sum + item);
-        summaryElement.innerText = "$" + this.itemTotal;
+        summaryElement.innerText = "$" + this.itemTotal.toFixed(2);
       }
 
     calculateOrderTotal() {
@@ -63,7 +64,7 @@ export default class CheckoutProcess {
         const orderTotal = document.querySelector(
           this.outputSelector + " #orderTotal"
         );
-        shipping.innerText = "$" + this.shipping;
+        shipping.innerText = "$" + this.shipping.toFixed(2);
         tax.innerText = "$" + this.tax;
         orderTotal.innerText = "$" + this.orderTotal;
     }
